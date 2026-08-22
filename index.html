@@ -234,12 +234,12 @@
         }
 
         .guide-warning-box {
-            background: #1a1500;
-            border-left: 4px solid #ffaa00;
+            background: #111b24;
+            border-left: 4px solid #0088cc;
             padding: 15px;
             border-radius: 6px;
             margin-top: 15px;
-            color: #ffda80;
+            color: #bce3ff;
             font-size: 0.95em;
         }
 
@@ -444,7 +444,7 @@
 
         .card h3 { color: #fff; margin-top: 0; margin-bottom: 12px; font-size: 1.3em;}
 
-        /* Статус сервера */
+        /* Плашка информации о статусе в Telegram */
         .status-wrapper {
             display: flex;
             flex-direction: column;
@@ -456,12 +456,13 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 5px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             font-size: 0.85em;
             font-weight: bold;
-            background: #111115;
-            border: 1px solid #333;
+            background: #111b24;
+            border: 1px solid #0088cc;
+            color: #00b4d8;
         }
 
         .status-dot {
@@ -469,22 +470,16 @@
             height: 8px;
             border-radius: 50%;
             display: inline-block;
+            background-color: #0088cc;
+            box-shadow: 0 0 8px #0088cc;
         }
 
-        .status-badge.online { border-color: rgba(76, 175, 80, 0.4); color: #4CAF50; }
-        .status-badge.online .status-dot { background-color: #4CAF50; box-shadow: 0 0 8px #4CAF50; }
-
-        .status-badge.offline { border-color: rgba(244, 67, 54, 0.4); color: #f44336; }
-        .status-badge.offline .status-dot { background-color: #f44336; }
-
-        .status-badge.loading { border-color: rgba(255, 170, 0, 0.4); color: #ffaa00; }
-        .status-badge.loading .status-dot { background-color: #ffaa00; }
-
-        .player-count-text {
-            font-size: 0.85em;
-            color: #999;
-            margin-top: 6px;
-            font-weight: 500;
+        .telegram-alert-text {
+            font-size: 0.9em;
+            color: #4CAF50;
+            margin-top: 8px;
+            font-weight: bold;
+            line-height: 1.4;
         }
 
         /* Интерактивная плашка IP */
@@ -744,9 +739,9 @@
                         <li><b>Адрес сервера:</b> <code>Utopiavanila.proximamp.com</code></li>
                     </ul>
                     <p style="color: #aaa; font-size: 0.9em; margin: 0;">
-                        Нажимаете кнопку <b>«Готово»</b> или <b>«Подключиться»</b> и сразу попадаете в наш мир!
+                        Нажимаете кнопку <b>«Готово»</b> или <b>«Подключиться»</b> и сразу попадаете на сервер!
                     </p>
-                    <img src="image_bcf42d.png" alt="Прямое подключение к серверу">
+                    <img src="40541417-dc95-4d2d-8da1-fb76f7c4582c.png" alt="Прямое подключение к серверу">
                 </div>
             </div>
 
@@ -761,7 +756,7 @@
                     <p style="color: #ccc; margin: 0 0 10px 0;">
                         Если прямой адрес временно недоступен, добавьте адрес хаба: <code>proximamp.com</code> и зайдите на него.
                     </p>
-                    <img src="image_bcf6d4.png" alt="Вход в лобби Proxima">
+                    <img src="7197abab-4782-476d-9ce0-5386203888c5.png" alt="Вход в лобби Proxima">
                 </div>
 
                 <div class="guide-step">
@@ -771,7 +766,7 @@
                     <p style="color: #ccc; margin: 0 0 10px 0;">
                         В лобби возьмите в руку предмет <b>Компас («Поиск сервера»)</b> и нажмите правую кнопку мыши.
                     </p>
-                    <img src="image_bcf6ed.png" alt="Компас поиска сервера">
+                    <img src="783b84c4-970d-4827-97ed-c915ebf4bcb0.png" alt="Компас поиска сервера">
                 </div>
 
                 <div class="guide-step">
@@ -781,7 +776,7 @@
                     <p style="color: #ccc; margin: 0 0 10px 0;">
                         В открывшемся меню категорий нажмите на <b>Командный блок</b> в правом нижнем углу.
                     </p>
-                    <img src="Снимок%20экрана%202026-08-22%20125315.png" alt="Список категорий - Командный блок">
+                    <img src="Снимок%20экрана%202026-08-22%20125315_2.png" alt="Список категорий - Командный блок">
                 </div>
 
                 <div class="guide-step">
@@ -791,7 +786,7 @@
                     <p style="color: #ccc; margin: 0 0 10px 0;">
                         В списке серверов найдите <b>Utopiavanila</b> (иконка <i>Сердце моря</i>) и нажмите по ней.
                     </p>
-                    <img src="image_bcf72f.png" alt="Выбор Utopiavanila">
+                    <img src="2192c942-1666-4865-a4ab-6ec4f63b9d38.png" alt="Выбор Utopiavanila">
                 </div>
 
                 <div class="guide-step">
@@ -801,11 +796,11 @@
                     <p style="color: #ccc; margin: 0 0 10px 0;">
                         Подождите пару секунд, появится надпись <b>«Идёт подключение к локальному серверу»</b>, и вас перенесёт в игру!
                     </p>
-                    <img src="image_bcf731.png" alt="Идет подключение">
+                    <img src="7d19b327-5557-4841-ae4c-5a6e5a8ede03.png" alt="Идет подключение">
                 </div>
 
                 <div class="guide-warning-box">
-                    ⚠️ <b>Обратите внимание:</b> Если сервера <b>Utopiavanila</b> нет в списке лобби, значит в данный момент сервер выключен по расписанию. Следите за статусом и графиком работы на главной странице сайта!
+                    📢 <b>Обратите внимание:</b> Если сервера <b>Utopiavanila</b> нет в списке лобби, значит в данный момент он выключен. За включением и выключением сервера следите в нашем Telegram-канале!
                 </div>
             </div>
         </div>
@@ -963,11 +958,13 @@
                     <h3>🎮 Подключение</h3>
                     
                     <div class="status-wrapper">
-                        <div id="server-status-badge" class="status-badge loading">
+                        <div class="status-badge">
                             <span class="status-dot"></span>
-                            <span id="status-text">Загрузка статуса...</span>
+                            <span>Статус сервера</span>
                         </div>
-                        <div id="player-count" class="player-count-text">Считывание данных...</div>
+                        <div class="telegram-alert-text">
+                            📢 За включением и выключением сервера следите в Telegram-канале!
+                        </div>
                     </div>
 
                     <div class="ip-box" onclick="copyIP()" title="Нажмите, чтобы скопировать IP">
@@ -984,13 +981,15 @@
             <div class="card">
                 <div>
                     <h3>⚠️ Режим работы</h3>
-                    <p style="color: #bbb;">Сервер работает на домашнем железе, поэтому на ночь выключается:</p>
+                    <p style="color: #bbb;">Сервер работает на домашнем железе по гибкому графику:</p>
                     <ul class="info-list">
                         <li>🟢 <b>Включение:</b> 10:00 – 12:00</li>
                         <li>🔴 <b>Выключение:</b> 22:20</li>
                     </ul>
                 </div>
-                <p style="font-size: 0.85em; color: #888; margin-top: 15px; margin-bottom: 0;">Точное время запуска всегда в Telegram-канале!</p>
+                <p style="font-size: 0.9em; color: #4CAF50; font-weight: bold; margin-top: 15px; margin-bottom: 0;">
+                    Точные анонсы о включении и выключении сервера — только в нашем Telegram-канале!
+                </p>
             </div>
 
             <div class="card">
@@ -1053,42 +1052,7 @@
             document.body.removeChild(textArea);
         }
 
-        // Чтение статуса из status.json
-        async function fetchServerStatus() {
-            const badge = document.getElementById("server-status-badge");
-            const statusText = document.getElementById("status-text");
-            const playerCount = document.getElementById("player-count");
-
-            try {
-                const response = await fetch("status.json?nocache=" + Date.now());
-                if (!response.ok) throw new Error("status.json not found yet");
-                const data = await response.json();
-
-                const verName = data.version ? (data.version.name_clean || data.version.name_raw || "") : "";
-                const isVersionValid = verName.toLowerCase().includes("1.20.1");
-                const isOnline = data.online === true && isVersionValid;
-
-                if (isOnline) {
-                    badge.className = "status-badge online";
-                    statusText.innerText = "Сервер онлайн";
-                    const onlineCount = data.players ? data.players.online : 0;
-                    const maxCount = data.players ? data.players.max : 20;
-                    playerCount.innerText = `В сети: ${onlineCount} / ${maxCount} игроков`;
-                } else {
-                    badge.className = "status-badge offline";
-                    statusText.innerText = "Сервер оффлайн";
-                    playerCount.innerText = "Выключен (ждём старта по графику)";
-                }
-            } catch (err) {
-                badge.className = "status-badge offline";
-                statusText.innerText = "Сервер оффлайн";
-                playerCount.innerText = "Выключен (ждём старта по графику)";
-            }
-        }
-
         window.onload = () => {
-            fetchServerStatus();
-            setInterval(fetchServerStatus, 30000);
             setTimeout(() => { showNotification("👋 Добро пожаловать на сайт UtopiaVanila!"); }, 800);
         };
 
