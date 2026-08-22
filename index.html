@@ -881,42 +881,79 @@
             document.body.removeChild(textArea);
         }
 
-        // Проверка статуса строго по версии 1.20.1
+        // Двухканальный опрос с быстрым тайм-аутом и фильтром 1.20.1
         async function fetchServerStatus() {
             const badge = document.getElementById("server-status-badge");
             const statusText = document.getElementById("status-text");
             const playerCount = document.getElementById("player-count");
 
+            const host = "Utopiavanila.proximamp.com";
+
+            async function checkMCStatus() {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 3500);
+                const res = await fetch(`https://api.mcstatus.io/v2/status/java/${host}`, { signal: controller.signal });
+                clearTimeout(timeoutId);
+                const data = await res.json();
+                
+                if (data.online) {
+                    const ver = (data.version ? (data.version.name_clean || data.version.name_raw || "") : "").toLowerCase();
+                    const isTarget = ver.includes("1.20.1") || ver.includes("paper") || ver.includes("purpur");
+                    return {
+                        online: isTarget,
+                        players: data.players ? data.players.online : 0,
+                        max: data.players ? data.players.max : 20
+                    };
+                }
+                return { online: false };
+            }
+
+            async function checkMCSrvStat() {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 3500);
+                const res = await fetch(`https://api.mcsrvstat.us/2/${host}?nocache=${Date.now()}`, { signal: controller.signal });
+                clearTimeout(timeoutId);
+                const data = await res.json();
+
+                if (data.online) {
+                    const ver = (data.version || "").toString().toLowerCase();
+                    const isTarget = ver.includes("1.20.1");
+                    return {
+                        online: isTarget,
+                        players: data.players ? data.players.online : 0,
+                        max: data.players ? data.players.max : 20
+                    };
+                }
+                return { online: false };
+            }
+
             try {
-                const response = await fetch("https://api.mcsrvstat.us/2/Utopiavanila.proximamp.com?nocache=" + Date.now());
-                const data = await response.json();
+                let result;
+                try {
+                    result = await checkMCStatus();
+                } catch (e) {
+                    result = await checkMCSrvStat();
+                }
 
-                const versionText = (data.version || "").toString().toLowerCase();
-
-                // Сервер онлайн только если API вернул статус online и версию 1.20.1
-                const isServerOnline = data.online === true && versionText.includes("1.20.1");
-
-                if (isServerOnline) {
+                if (result && result.online) {
                     badge.className = "status-badge online";
                     statusText.innerText = "Сервер онлайн";
-                    const onlinePlayers = data.players ? data.players.online : 0;
-                    const maxPlayers = data.players ? data.players.max : 20;
-                    playerCount.innerText = `В сети: ${onlinePlayers} / ${maxPlayers} игроков`;
+                    playerCount.innerText = `В сети: ${result.players} / ${result.max} игроков`;
                 } else {
                     badge.className = "status-badge offline";
                     statusText.innerText = "Сервер оффлайн";
                     playerCount.innerText = "Выключен (ждём старта по графику)";
                 }
-            } catch (error) {
+            } catch (err) {
                 badge.className = "status-badge offline";
-                statusText.innerText = "Статус недоступен";
-                playerCount.innerText = "Следите за запуском в Telegram";
+                statusText.innerText = "Сервер оффлайн";
+                playerCount.innerText = "Выключен (ждём старта по графику)";
             }
         }
 
         window.onload = () => {
             fetchServerStatus();
-            setInterval(fetchServerStatus, 30000);
+            setInterval(fetchServerStatus, 25000);
             setTimeout(() => { showNotification("👋 Добро пожаловать на сайт UtopiaVanila!"); }, 800);
         };
 
