@@ -1,0 +1,24 @@
+name: Update Server Status
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  update-status:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Fetch status and save to file
+        run: |
+          curl -s "https://api.mcstatus.io/v2/status/java/Utopiavanila.proximamp.com" > status.json
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add status.json
+          git commit -m "Update server status" || echo "No changes"
+          git push
+        
