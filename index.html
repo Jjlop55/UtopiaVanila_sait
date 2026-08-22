@@ -127,6 +127,9 @@
         }
         .action-btn:hover { background-color: #45a049; }
 
+        .guide-btn { background-color: #00838f; }
+        .guide-btn:hover { background-color: #00acc1; }
+
         .media-btn { background-color: #9c27b0; }
         .media-btn:hover { background-color: #7b1fa2; }
 
@@ -165,6 +168,80 @@
         .modal-header-bar h2 { margin: 0; font-size: 1.8em; }
         .close-fullscreen { font-size: 36px; color: #fff; cursor: pointer; line-height: 1; }
         .close-fullscreen:hover { color: #ff5555; }
+
+        /* Помощь по входу */
+        .guide-container {
+            max-width: 950px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .guide-box {
+            background: #1a1a1f;
+            border: 1px solid #2a2a30;
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .guide-box h3 {
+            margin-top: 0;
+            color: #00bcd4;
+            font-size: 1.35em;
+            border-bottom: 1px solid #2a2a30;
+            padding-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .guide-step {
+            background: #141418;
+            border: 1px solid #26262e;
+            border-radius: 8px;
+            padding: 18px;
+            margin-bottom: 20px;
+        }
+
+        .guide-step:last-child { margin-bottom: 0; }
+
+        .guide-step-title {
+            font-size: 1.05em;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .step-num {
+            background: #00838f;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+
+        .guide-step img {
+            width: 100%;
+            max-width: 650px;
+            display: block;
+            margin: 12px auto 0 auto;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .guide-warning-box {
+            background: #1a1500;
+            border-left: 4px solid #ffaa00;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            color: #ffda80;
+            font-size: 0.95em;
+        }
 
         /* Галерея */
         .gallery-grid {
@@ -645,6 +722,95 @@
         </div>
     </div>
 
+    <!-- Модальное окно: Помощь по входу -->
+    <div id="guide-modal" class="modal-fullscreen">
+        <div class="modal-header-bar">
+            <h2 style="color: #00bcd4;">📖 Как зайти на сервер UtopiaVanila</h2>
+            <span class="close-fullscreen" onclick="closeGuide()">&times;</span>
+        </div>
+        <div class="guide-container">
+            <!-- Способ 1 -->
+            <div class="guide-box">
+                <h3>🚀 Способ 1. Прямой вход (Рекомендуется)</h3>
+                <div class="guide-step">
+                    <div class="guide-step-title">
+                        <span class="step-num">Прямой IP</span> Ввод данных сервера
+                    </div>
+                    <p style="color: #ccc; margin: 0 0 10px 0;">
+                        В главном меню Minecraft выберите <b>«По сетевой игре»</b> → <b>«По прямому подключению»</b> (или <i>«Добавить»</i>) и введите следующие данные:
+                    </p>
+                    <ul style="color: #ddd; margin: 0 0 10px 20px;">
+                        <li><b>Название сервера:</b> UtopiaVanila</li>
+                        <li><b>Адрес сервера:</b> <code>Utopiavanila.proximamp.com</code></li>
+                    </ul>
+                    <p style="color: #aaa; font-size: 0.9em; margin: 0;">
+                        Нажимаете кнопку <b>«Готово»</b> или <b>«Подключиться»</b> и сразу попадаете в наш мир!
+                    </p>
+                    <img src="image_bcf42d.png" alt="Прямое подключение к серверу">
+                </div>
+            </div>
+
+            <!-- Способ 2 -->
+            <div class="guide-box">
+                <h3>🌐 Способ 2. Вход через общее лобби ProximaMP</h3>
+                
+                <div class="guide-step">
+                    <div class="guide-step-title">
+                        <span class="step-num">Шаг 1</span> Добавление сервера лобби
+                    </div>
+                    <p style="color: #ccc; margin: 0 0 10px 0;">
+                        Если прямой адрес временно недоступен, добавьте адрес хаба: <code>proximamp.com</code> и зайдите на него.
+                    </p>
+                    <img src="image_bcf6d4.png" alt="Вход в лобби Proxima">
+                </div>
+
+                <div class="guide-step">
+                    <div class="guide-step-title">
+                        <span class="step-num">Шаг 2</span> Поиск сервера через Компас
+                    </div>
+                    <p style="color: #ccc; margin: 0 0 10px 0;">
+                        В лобби возьмите в руку предмет <b>Компас («Поиск сервера»)</b> и нажмите правую кнопку мыши.
+                    </p>
+                    <img src="image_bcf6ed.png" alt="Компас поиска сервера">
+                </div>
+
+                <div class="guide-step">
+                    <div class="guide-step-title">
+                        <span class="step-num">Шаг 3</span> Выбор категории локальных серверов
+                    </div>
+                    <p style="color: #ccc; margin: 0 0 10px 0;">
+                        В открывшемся меню категорий нажмите на <b>Командный блок</b> в правом нижнем углу.
+                    </p>
+                    <img src="Снимок%20экрана%202026-08-22%20125315.png" alt="Список категорий - Командный блок">
+                </div>
+
+                <div class="guide-step">
+                    <div class="guide-step-title">
+                        <span class="step-num">Шаг 4</span> Выбор сервера Utopiavanila
+                    </div>
+                    <p style="color: #ccc; margin: 0 0 10px 0;">
+                        В списке серверов найдите <b>Utopiavanila</b> (иконка <i>Сердце моря</i>) и нажмите по ней.
+                    </p>
+                    <img src="image_bcf72f.png" alt="Выбор Utopiavanila">
+                </div>
+
+                <div class="guide-step">
+                    <div class="guide-step-title">
+                        <span class="step-num">Шаг 5</span> Подключение к серверу
+                    </div>
+                    <p style="color: #ccc; margin: 0 0 10px 0;">
+                        Подождите пару секунд, появится надпись <b>«Идёт подключение к локальному серверу»</b>, и вас перенесёт в игру!
+                    </p>
+                    <img src="image_bcf731.png" alt="Идет подключение">
+                </div>
+
+                <div class="guide-warning-box">
+                    ⚠️ <b>Обратите внимание:</b> Если сервера <b>Utopiavanila</b> нет в списке лобби, значит в данный момент сервер выключен по расписанию. Следите за статусом и графиком работы на главной странице сайта!
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Модальное окно: Для стримеров и ютуберов -->
     <div id="media-modal" class="modal-fullscreen">
         <div class="modal-header-bar">
@@ -759,6 +925,12 @@
             <span class="close-btn" onclick="closeMenu()">&times;</span>
         </div>
 
+        <div class="menu-section" style="border-color: #00bcd4;">
+            <h3 style="color: #00bcd4;">Помощь по входу</h3>
+            <p>Пошаговые способы подключения к нашему серверу</p>
+            <button class="action-btn guide-btn" onclick="openGuide()">📖 Как зайти на сервер</button>
+        </div>
+
         <div class="menu-section">
             <h3>Фотографии сервера</h3>
             <p>Посмотрите скриншоты от наших игроков</p>
@@ -793,9 +965,9 @@
                     <div class="status-wrapper">
                         <div id="server-status-badge" class="status-badge loading">
                             <span class="status-dot"></span>
-                            <span id="status-text">Проверка сервера...</span>
+                            <span id="status-text">Загрузка статуса...</span>
                         </div>
-                        <div id="player-count" class="player-count-text">Опрос статуса...</div>
+                        <div id="player-count" class="player-count-text">Считывание данных...</div>
                     </div>
 
                     <div class="ip-box" onclick="copyIP()" title="Нажмите, чтобы скопировать IP">
@@ -881,64 +1053,27 @@
             document.body.removeChild(textArea);
         }
 
-        // Двухканальный опрос с быстрым тайм-аутом и фильтром 1.20.1
+        // Чтение статуса из status.json
         async function fetchServerStatus() {
             const badge = document.getElementById("server-status-badge");
             const statusText = document.getElementById("status-text");
             const playerCount = document.getElementById("player-count");
 
-            const host = "Utopiavanila.proximamp.com";
-
-            async function checkMCStatus() {
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 3500);
-                const res = await fetch(`https://api.mcstatus.io/v2/status/java/${host}`, { signal: controller.signal });
-                clearTimeout(timeoutId);
-                const data = await res.json();
-                
-                if (data.online) {
-                    const ver = (data.version ? (data.version.name_clean || data.version.name_raw || "") : "").toLowerCase();
-                    const isTarget = ver.includes("1.20.1") || ver.includes("paper") || ver.includes("purpur");
-                    return {
-                        online: isTarget,
-                        players: data.players ? data.players.online : 0,
-                        max: data.players ? data.players.max : 20
-                    };
-                }
-                return { online: false };
-            }
-
-            async function checkMCSrvStat() {
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 3500);
-                const res = await fetch(`https://api.mcsrvstat.us/2/${host}?nocache=${Date.now()}`, { signal: controller.signal });
-                clearTimeout(timeoutId);
-                const data = await res.json();
-
-                if (data.online) {
-                    const ver = (data.version || "").toString().toLowerCase();
-                    const isTarget = ver.includes("1.20.1");
-                    return {
-                        online: isTarget,
-                        players: data.players ? data.players.online : 0,
-                        max: data.players ? data.players.max : 20
-                    };
-                }
-                return { online: false };
-            }
-
             try {
-                let result;
-                try {
-                    result = await checkMCStatus();
-                } catch (e) {
-                    result = await checkMCSrvStat();
-                }
+                const response = await fetch("status.json?nocache=" + Date.now());
+                if (!response.ok) throw new Error("status.json not found yet");
+                const data = await response.json();
 
-                if (result && result.online) {
+                const verName = data.version ? (data.version.name_clean || data.version.name_raw || "") : "";
+                const isVersionValid = verName.toLowerCase().includes("1.20.1");
+                const isOnline = data.online === true && isVersionValid;
+
+                if (isOnline) {
                     badge.className = "status-badge online";
                     statusText.innerText = "Сервер онлайн";
-                    playerCount.innerText = `В сети: ${result.players} / ${result.max} игроков`;
+                    const onlineCount = data.players ? data.players.online : 0;
+                    const maxCount = data.players ? data.players.max : 20;
+                    playerCount.innerText = `В сети: ${onlineCount} / ${maxCount} игроков`;
                 } else {
                     badge.className = "status-badge offline";
                     statusText.innerText = "Сервер оффлайн";
@@ -953,7 +1088,7 @@
 
         window.onload = () => {
             fetchServerStatus();
-            setInterval(fetchServerStatus, 25000);
+            setInterval(fetchServerStatus, 30000);
             setTimeout(() => { showNotification("👋 Добро пожаловать на сайт UtopiaVanila!"); }, 800);
         };
 
@@ -964,6 +1099,17 @@
 
         function closeMenu() {
             document.getElementById("side-menu").style.left = window.innerWidth <= 768 ? "-100%" : "-370px";
+            document.body.style.overflow = "auto";
+        }
+
+        function openGuide() {
+            closeMenu();
+            document.getElementById("guide-modal").style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeGuide() {
+            document.getElementById("guide-modal").style.display = "none";
             document.body.style.overflow = "auto";
         }
 
